@@ -1,0 +1,60 @@
+.header {
+  background-color: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo h4 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.nav {
+  display: flex;
+}
+.button {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.forRecruiters {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  margin-right: 20px;
+}
+
+.signUp {
+  background-color: #3D1EDD;
+}
+.logIn {
+  background-color: #fff;
+  color: #3D1EDD;
+  border: 2px solid #3D1EDD;
+}
+.logIn:hover,
+.signUp:hover {
+  background-color: #2b13b3;
+  color: #fff;
+}
