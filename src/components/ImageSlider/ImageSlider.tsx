@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ImageSlider.module.css';
-import hero1 from '../../assets/img/Rectangle2.jpg';
+import hero1 from '../../assets/img/image 9.png';
 import hero2 from '../../assets/img/image 4.png';
 import hero3 from '../../assets/img/image 5.jpg';
 

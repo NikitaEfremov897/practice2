@@ -14,7 +14,7 @@ interface Course {
   imageSrc: string;
 }
 
-const courseData: Course[] = [
+const baseCourses: Course[] = [
   {
     id: 1,
     author: 'React Team',
@@ -44,11 +44,17 @@ interface CardListProps {
 }
 
 const CardList: React.FC<CardListProps> = ({ limit = 3, showHeaderLink = false }) => {
-  const initialCourse = courseData[0];
+  const extendedCourses = Array.from({ length: limit }, (_, i) => {
+    const base = baseCourses[i % baseCourses.length];
+    return {
+      ...base,
+      id: i + 1,
+    };
+  });
+
+  const initialCourse = extendedCourses[0];
   const [selectedDescription, setSelectedDescription] = useState(initialCourse.description);
   const [selectedImage, setSelectedImage] = useState(initialCourse.imageSrc);
-
-  const limitedCourses = courseData.slice(0, limit);
 
   const handleCardClick = (description: string, imageSrc: string) => {
     setSelectedDescription(description);
@@ -57,16 +63,20 @@ const CardList: React.FC<CardListProps> = ({ limit = 3, showHeaderLink = false }
 
   return (
     <FeaturesSection
-      title={showHeaderLink ? (
-        <a href="/cards" style={{ color: 'inherit', textDecoration: 'none' }}>
-          Курсы для разработчиков
-        </a>
-      ) : selectedDescription}
+      title={
+        showHeaderLink ? (
+          <a href="/cards" style={{ color: 'inherit', textDecoration: 'none' }}>
+            Курсы для разработчиков
+          </a>
+        ) : (
+          selectedDescription
+        )
+      }
       imageSrc={selectedImage}
       imageAlt="Course illustration"
     >
       <div className={styles.cardsContainer}>
-        {limitedCourses.map(({ id, author, title, description, imageSrc }) => (
+        {extendedCourses.map(({ id, author, title, description, imageSrc }) => (
           <Card
             key={id}
             title={`Курс: ${title}`}

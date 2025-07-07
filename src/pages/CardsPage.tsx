@@ -5,7 +5,7 @@ const CardsPage: React.FC = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center', margin: '30px 0' }}>Все доступные курсы</h1>
-      <CardList />
+      <CardList limit={10} showHeaderLink={false} />
     </div>
   );
 };
